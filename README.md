@@ -86,7 +86,6 @@ Estrutura gerada:
             │   └── User.php
             ├── Database/
             │   └── Migrations/
-            │       └── 2025-xx-xx-000001_create_users_table.php
             ├── Services/
             │   └── UserService.php
             └── Views/
