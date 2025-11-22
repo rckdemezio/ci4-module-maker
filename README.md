@@ -35,25 +35,35 @@ git clone https://github.com/{seu-usuário}/gerador-modulos-ci4.git
 composer install
 ```
 
-### 3. Registrar o comando no seu projeto CodeIgniter 4
+### 3. Registrar o comando no CodeIgniter
 
-Adicione no `composer.json`:
-
-``` json
-"autoload": {
-    "psr-4": {
-        "App\": "app/",
-        "App\Commands\": "app/Commands"
-    }
-}
-```
-
-Depois:
+Em ``app/Config/Autoload.php`` em ``$psr4`` adicione:
 
 ``` bash
-composer dump-autoload
+'App\\Commands' => APPPATH . 'Commands',
 ```
 
+## Registrar as rotas dos módulos
+```PHP
+$modulesPath = APPPATH . 'Modules/';
+if (is_dir($modulesPath)) {
+    $modules = scandir($modulesPath);
+
+    foreach ($modules as $module) {
+        if ($module === '.' || $module === '..') {
+            continue;
+        }
+
+        $routesFile = $modulesPath . $module . '/Config/Routes.php';
+
+        // Garante que não é o arquivo principal e que existe de fato
+        if (is_file($routesFile) && realpath($routesFile) !== realpath(__FILE__)) {
+            require $routesFile;
+        }
+    }
+}
+
+```
 ## Como usar
 
 ``` bash
@@ -87,9 +97,9 @@ Estrutura gerada:
   -------------------------- ------------------------------------
   **Config/**                Arquivo de rotas do módulo
   **Controllers/**           Controladores principais do módulo
-  **Models/**                Models para banco
-  **Entities/**              Entidades de dados
   **Database/Migrations/**   Migration inicial do módulo
+  **Entities/**              Entidades de dados
+  **Models/**                Models para banco
   **Services/**              Regras de negócio
   **Views/**                 Arquivos de interface
 
