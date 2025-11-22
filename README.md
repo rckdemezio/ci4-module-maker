@@ -92,7 +92,7 @@ Estrutura gerada:
                 └── index.php
 
 ## Estrutura Criada
-
+```
   Pasta                      Função
   -------------------------- ------------------------------------
   **Config/**                Arquivo de rotas do módulo
@@ -102,7 +102,7 @@ Estrutura gerada:
   **Models/**                Models para banco
   **Services/**              Regras de negócio
   **Views/**                 Arquivos de interface
-
+```
 ## Contribuições
 
 Pull Requests são bem-vindos!
