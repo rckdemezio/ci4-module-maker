@@ -44,6 +44,7 @@ Em ``app/Config/Autoload.php`` em ``$psr4`` adicione:
 ```
 
 ## Registrar as rotas dos módulos
+Em ``app/Config/Routes.php`` adicione:
 ```PHP
 $modulesPath = APPPATH . 'Modules/';
 if (is_dir($modulesPath)) {
