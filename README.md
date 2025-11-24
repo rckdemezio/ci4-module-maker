@@ -26,7 +26,7 @@ garantindo uma estrutura profissional desde o início.
 ### 1. Clonar o repositório
 
 ``` bash
-git clone https://github.com/{seu-usuário}/gerador-modulos-ci4.git
+git clone https://github.com/rckdemezio/gerador-modulos-ci4.git
 ```
 
 ### 2. Instalar dependências
